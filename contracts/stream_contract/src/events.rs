@@ -1,10 +1,10 @@
-use soroban_sdk::{contracttype, Address, BytesN};
+﻿use soroban_sdk::{contracttype, Address, BytesN};
 
-// ─── Wire Format ─────────────────────────────────────────────────────────────
+// â”€â”€â”€ Wire Format â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 //
 // Each event below is emitted via `env.events().publish(topics, data)`.
 // `data` is the `#[contracttype]` struct serialized as a Soroban `Map`, keyed
-// by field name (not positional) — so `soroban-event-worker.ts`'s `decodeMap`
+// by field name (not positional) â€” so `soroban-event-worker.ts`'s `decodeMap`
 // reads fields by name and is order-independent. The one invariant the
 // backend decoder DOES depend on is the **field name and scalar type** of
 // every field listed here; renaming or retyping a field without updating the
@@ -257,3 +257,15 @@ pub struct StateMigratedEvent {
     /// Schema version after the migration.
     pub new_version: u32,
 }
+
+/// Emitted when a cancelled or completed stream is pruned from storage.
+///
+/// Topic: `("stream_closed", stream_id)`
+#[contracttype]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StreamClosedEvent {
+    pub stream_id: u64,
+    pub closer: Address,
+    pub timestamp: u64,
+}
+
