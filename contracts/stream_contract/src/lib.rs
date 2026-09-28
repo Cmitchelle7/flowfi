@@ -1,4 +1,4 @@
-﻿//! # `stream_contract` â€” Soroban Payment-Streaming Contract
+//! # `stream_contract` â€” Soroban Payment-Streaming Contract
 //!
 //! ## Module responsibilities
 //!
@@ -46,39 +46,16 @@ use soroban_sdk::{
 
 use errors::StreamError;
 use events::{
-    AdminTransferredEvent,
-    ContractUpgradedEvent,
-    EmergencyGuardianUpdatedEvent,
-    FeeCollectedEvent,
-    FeeConfigUpdatedEvent,
-    HybridCliffStreamCreatedEvent,
-    InitializedEvent,
-    ProtocolPauseStatusEvent,
-    StateMigratedEvent,
-    StepVestingStreamCreatedEvent,
-    StreamCancelledEvent,
-    StreamCompletedEvent,
-    StreamCreatedEvent,
-    StreamPausedEvent,
-    StreamResumedEvent,
-    StreamToppedUpEvent,
-    TokensWithdrawnEvent,
-    StreamClosedEvent,
+    AdminTransferredEvent, ContractUpgradedEvent, EmergencyGuardianUpdatedEvent, FeeCollectedEvent,
+    FeeConfigUpdatedEvent, HybridCliffStreamCreatedEvent, InitializedEvent,
+    ProtocolPauseStatusEvent, StateMigratedEvent, StepVestingStreamCreatedEvent,
+    StreamCancelledEvent, StreamClosedEvent, StreamCompletedEvent, StreamCreatedEvent,
+    StreamPausedEvent, StreamResumedEvent, StreamToppedUpEvent, TokensWithdrawnEvent,
 };
 use storage::{
-    config_exists,
-    get_contract_version,
-    get_recorded_wasm_hash,
-    load_config,
-    load_stream,
-    next_stream_id,
-    save_config,
-    save_contract_version,
-    save_recorded_wasm_hash,
-    save_stream,
-    try_load_config,
-    try_load_stream,
-    remove_stream,
+    config_exists, get_contract_version, get_recorded_wasm_hash, load_config, load_stream,
+    next_stream_id, remove_stream, save_config, save_contract_version, save_recorded_wasm_hash,
+    save_stream, try_load_config, try_load_stream,
 };
 use types::{
     ProtocolConfig, Stream, StreamStatus, VestingSchedule, VestingStep, MAX_BATCH_WITHDRAW,
@@ -1632,7 +1609,3 @@ impl StreamContract {
         }
     }
 }
-
-
-
-

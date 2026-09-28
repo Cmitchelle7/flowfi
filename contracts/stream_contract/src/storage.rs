@@ -1,4 +1,4 @@
-﻿use soroban_sdk::{Env, Map, Symbol, TryFromVal, Val};
+use soroban_sdk::{Env, Map, Symbol, TryFromVal, Val};
 
 /// Minimum ledgers remaining before a persistent entry is renewed.
 pub const PERSISTENT_LIFETIME_THRESHOLD: u32 = 120_960;
@@ -239,4 +239,3 @@ pub fn save_recorded_wasm_hash(env: &Env, hash: &soroban_sdk::BytesN<32>) {
         .instance()
         .set(&DataKey::ContractWasmHash, hash);
 }
-

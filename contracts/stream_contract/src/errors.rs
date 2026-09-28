@@ -1,4 +1,4 @@
-﻿use soroban_sdk::contracterror;
+use soroban_sdk::contracterror;
 
 /// Exhaustive error surface for `StreamContract`.
 ///
@@ -74,4 +74,3 @@ pub enum StreamError {
     /// A stream was expected to be terminal (cancelled or fully withdrawn) but is not.
     StreamStillActive = 29,
 }
-
