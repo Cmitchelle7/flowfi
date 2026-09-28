@@ -1405,7 +1405,7 @@ impl StreamContract {
 
             // Each stream is committed to storage before its own token transfer
             // (CEI), so a malicious token cannot re-enter against stale state.
-            Self::apply_withdrawal(&env, &mut stream, stream_id, &recipient, claimable, now);
+            Self::apply_withdrawal(&env, &mut stream, stream_id, &recipient, claimable, now)?;
 
             let completed = stream.status == StreamStatus::Completed;
 
@@ -1632,6 +1632,7 @@ impl StreamContract {
         }
     }
 }
+
 
 
 
