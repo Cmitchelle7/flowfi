@@ -2151,8 +2151,8 @@ fn test_resume_on_cancelled_stream_fails() {
     let result = client.try_resume_stream(&sender, &id);
     assert_eq!(
         result,
-        Err(Ok(StreamError::StreamNotActive)),
-        "resume_stream must return StreamNotActive on an inactive stream"
+        Err(Ok(StreamError::StreamInactive)),
+        "resume_stream must return StreamInactive on an inactive stream"
     );
 
     // Stream state must be unchanged: still cancelled, not resumed.
